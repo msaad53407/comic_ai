@@ -1,0 +1,46 @@
+Project Proposal: AI Comic Generator
+## 1. Introduction
+The AI Comic Generator is a PHP-based web application designed to create complete comic pages from simple text prompts. It leverages artificial intelligence to generate storylines, dialogues, and corresponding comic-style illustrations with integrated dialogue bubbles. The system aims to simplify comic creation for users who lack artistic skills while offering creative storytelling possibilities through AI automation.
+## 2. Objectives
+The main objective of the project is to provide an intuitive platform for generating comic pages automatically from text input. Users can input a short story idea, and the system will generate comic panels with dialogues embedded in the artwork. This allows for creative expression, visual storytelling, and quick content generation.
+## 3. Core Features
+•	AI-based story generation: Automatically creates short comic narratives and dialogues.
+•	AI-based image generation: Produces comic-style images with embedded dialogues and panels.
+•	User input interface: Simple form to input prompt and style preferences.
+•	Comic layout generation: Creates multi-panel comic pages in a single image.
+•	Data storage: Stores generated comics, prompts, and metadata in a MySQL database.
+•	User history and management: Allows users to view, download, or delete their previous creations.
+•	Regeneration and customization: Option to modify storylines or regenerate specific panels.
+•	Download and sharing: Export generated comics as image or PDF files.
+## 4. Technology Stack
+•	Frontend: HTML, CSS, JavaScript (for user interface and image preview)
+•	Backend: PHP (handles API requests, data storage, and comic generation logic)
+•	Database: MySQL (stores users, prompts, and generated comics)
+•	AI APIs: OpenAI / Stability AI / DALL·E (for text and image generation)
+## 5. System Architecture
+1. The user submits a story prompt through the web interface.
+2. The PHP backend processes the prompt and sends it to an AI text model to generate scene descriptions and dialogues.
+3. The backend then sends structured requests to an AI image generator to create a complete comic page.
+4. The resulting comic image is saved to the database and displayed to the user.
+5. Users can download, regenerate, or share their comic outputs.
+## 6. Work Division (Team of 3 Members)
+BSCS51F23R007 – Muhammad Saad - Backend Developer (PHP + API Integration)
+•	Implement user input handling and API integration logic in PHP.
+•	Connect to AI text and image generation APIs (e.g., OpenAI/DALL·E).
+•	Develop core PHP logic to process prompts and generate comic data.
+•	Manage MySQL interactions for storing prompts and comic metadata.
+•	Ensure secure API key usage and error handling.
+BSCS51F23R031 – Talha Ayyaz - Frontend & UX Developer
+•	Design responsive comic generation interface (HTML/CSS/JS).
+•	Implement comic display layout and gallery view.
+•	Handle image previews and loading animations for generated comics.
+•	Create forms for user input (story prompt, number of panels, style selection).
+•	Ensure smooth interaction between frontend and backend through AJAX or fetch APIs.
+BSCS51F23R003 – Shayan Mirza -  Database & Enhancement Specialist
+•	Design and implement MySQL database schema for users, prompts, and comics.
+•	Develop PHP modules for saving, retrieving, and managing generated data.
+•	Implement user history and comic management system (view, delete, download).
+•	Optimize query performance and ensure database integrity.
+•	Work on additional enhancements like regeneration and PDF export features.
+## 7. Conclusion
+The AI Comic Generator project combines PHP web development with modern AI APIs to create an automated comic creation platform. It provides a unique, creative, and technically challenging experience for developers, while also being engaging for end-users. With well-divided responsibilities, the project ensures each member contributes effectively to building a cohesive, innovative application.
