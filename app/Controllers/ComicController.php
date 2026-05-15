@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\ComicModel;
 use App\Services\AIProviderFactory;
 use App\Core\AuthMiddleware;
+use App\Models\PanelModel;
 
 class ComicController extends BaseController
 {
@@ -24,7 +25,7 @@ class ComicController extends BaseController
         $recentComics = $this->comicModel->getAllByUserId($userId);
 
         // Fetch first panel for each comic as thumbnail
-        $panelModel = new \App\Models\PanelModel();
+        $panelModel = new PanelModel();
         foreach ($recentComics as &$comic) {
             $panels = $panelModel->getByComicId($comic['id']);
             $comic['first_panel'] = !empty($panels) ? $panels[0]['image_path'] : null;
@@ -76,7 +77,7 @@ class ComicController extends BaseController
             $comicId = $this->comicModel->create($userId, $prompt, $style, $layout, $script, $panelCount);
 
             // Step 4: Generate image for each panel and save to database
-            $panelModel = new \App\Models\PanelModel();
+            $panelModel = new PanelModel();
             $panels = [];
 
             foreach ($panelDescriptions as $panelData) {
@@ -202,7 +203,7 @@ class ComicController extends BaseController
             $imageUrl = $aiService->generateImage($imagePrompt);
 
             // Save panel
-            $panelModel = new \App\Models\PanelModel();
+            $panelModel = new PanelModel();
             $panelId = $panelModel->create(
                 $comicId,
                 $imageUrl,
@@ -282,7 +283,7 @@ class ComicController extends BaseController
         $comics = $this->comicModel->getAllByUserId($userId);
 
         // Fetch first panel for each comic as thumbnail
-        $panelModel = new \App\Models\PanelModel();
+        $panelModel = new PanelModel();
         foreach ($comics as &$comic) {
             $panels = $panelModel->getByComicId($comic['id']);
             $comic['first_panel'] = !empty($panels) ? $panels[0]['image_path'] : null;
@@ -305,7 +306,7 @@ class ComicController extends BaseController
         }
 
         // Get panels for this comic
-        $panelModel = new \App\Models\PanelModel();
+        $panelModel = new PanelModel();
         $panels = $panelModel->getByComicId($id);
 
         // Get recent comics for sidebar
